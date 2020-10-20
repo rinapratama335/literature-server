@@ -17,6 +17,12 @@ const {
   checkAuth,
 } = require("../controllers/auth");
 const { getAllUsers, deleteUser } = require("../controllers/user");
+
+const {
+  getAllLiteratur,
+  getAllLiteratureByKey,
+  getDetailLiterature,
+} = require("../controllers/literature");
 // const {
 //   getAllCategories,
 //   getDetailCategory,
@@ -44,6 +50,11 @@ router.post("/login", login);
 router.get("/auth", auth, checkAuth);
 router.get("/users", auth, getAllUsers);
 router.delete("/user/:id", auth, deleteUser);
+
+router.get("/literature", auth, getAllLiteratureByKey);
+router.get("/literatures", auth, getAllLiteratur);
+router.get("/literature/:id", auth, getDetailLiterature);
+// console.log("Key yang diminta : ", req.query);
 
 // router.get("/categories", auth, getAllCategories);
 // router.get("/category/:id", auth, getDetailCategory);
